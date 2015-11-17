@@ -1,0 +1,8 @@
+<h5>Start a New Game!</h5>
+<form>
+  <div class="form-group">
+    {{input type="text" placeholder="Enter players name" value=newPlayer.name class="form-control"}}
+  </div>
+  <button {{action 'createPlayer' newPlayer}} class="btn btn-default">Start Game!</button>
+  {{#link-to 'players' class='cancel-start-game-button'}}&times; cancel{{/link-to}}
+</form>

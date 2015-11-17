@@ -1,0 +1,29 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/tref/Desktop/jobsearch/apps/battleship/",
+      "folder_exclude_patterns": ["*"],
+      "folder_include_patterns": ["notes.txt", "steps.md"]
+		},
+    {
+      "path": "battleship-ember",
+      "name": "EMBER",
+      "folder_include_patterns": ["app", "app/*"],
+      "file_exclude_patterns": [
+        ".*",
+        "ember-cli-build.js",
+        "README.md",
+        "testem.json"
+      ]
+    },
+    {
+      "path": "battleship-rails",
+      "name": "RAILS",
+      "folder_exclude_patterns": ["log"],
+      "file_exclude_patterns": [
+        ".*"
+      ]
+    }
+	]
+}

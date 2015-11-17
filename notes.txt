@@ -1,0 +1,135 @@
+A Simplified Game of Battleship
+
+The Goal
+
+Build a game for a variation of Battleship that works via an API.
+
+Traditionally, Battleship has different sized ships that are placed on the board, to keep it simple, our ships will take up a single cell.
+
+The API should feature endpoints that will:
+
+Create a game
+Destroy a game
+Accepts coordinates for the player’s next move.
+Returns the coordinates for the CPU’s next move.
+For reference here’s how the game should work:
+
+The starting board will be 5x5.
+The player starts a game and places 10 ships on the board.
+The player submits their positions on the board via the API.
+The CPU places its ships on the board.
+The player is given the first move and submits coordinates to strike.
+If a ship is hit, it is destroyed.
+Allow the CPU to attack.
+Alternate moves between player and CPU.
+The first player to have all ships destroyed is the loser.
+Keys of the Challenge
+
+Focus on building a clean API that uses semantically correct status codes and request methods (GET, POST, PUT, DELETE, etc).
+Build the UI as a web browser client (Ember would be great, but React/Angular as a client is fine too).
+Feel free to use whatever server-side technology you are comfortable with.
+Bonus (optional)
+
+Add in user sessions so the server can handle more than one game at a time.
+Add a leaderboard that keeps winner’s initials and ranks them according to the time it took them to win.
+Deploy the application somewhere.
+Take Aways
+
+Please have fun with the challenge, don’t worry about visual design too much, but be proud of your submission. Enjoy! If you have any questions, feel free to contact us.
+
+For further reference on Battleship: https://en.wikipedia.org/wiki/Battleship_(game)
+
+http://andycrum.github.io/ember-data-model-maker/
+http://codepen.io/CodifyAcademy/pen/ByBEOz
+http://kortaggio.github.io/battleboat/
+http://ember.vicramon.com/ember-object-flow
+http://smashingboxes.com/ideas/merging-rails-and-ember-cli-part-2
+https://www.airpair.com/ember.js/posts/top-mistakes-ember-rails
+http://www.toptal.com/javascript/a-step-by-step-guide-to-building-your-first-ember-js-app
+https://github.com/thoughtbot/ember-cli-rails
+https://libraries.io/github/ember-data/active-model-adapter
+* https://www.twilio.com/blog/2015/08/getting-started-with-ember-js-2-0-using-ember-cli.html
+* http://ember.vicramon.com/listing-leads
+https://github.com/sararob/ember-cli-screencast/
+https://wyeworks.com/blog/2015/6/30/how-to-build-a-rails-5-api-only-and-ember-application
+railties/lib/rails/generators/rails/app/templates/Gemfile
+https://github.com/rails-api/active_model_serializers/pull/1248/files
+http://patshaughnessy.net/2014/6/16/a-rule-of-thumb-for-strong-parameters
+http://stackoverflow.com/questions/32491360/deserializing-json-api-with-rails-strong-parameters/33147584#33147584
+https://twitter.com/rwjblue/media
+http://eviltrout.com/2014/06/03/jquery-component.html
+http://fromrailstoember.com/
+http://www.railsonmaui.com/blog/2013/06/11/emberjs-rails4-tutorial/
+http://www.amooma.de/screencasts/2015-01-22-nested_forms-rails-4.2/
+http://www.toptal.com/emberjs/a-thorough-guide-to-ember-data
+** http://emberigniter.com/5-essential-ember-2.0-concepts/
+https://vimeo.com/140388294
+* https://ericdouglas.github.io/2015/08/16/Getting-Started-with-Ember-2-0/
+https://medium.com/@jamesfuthey/a-gentle-introduction-to-ember-2-0-8ef1f378ee4
+http://jsfiddle.net/builtbymay/vUZ4R/
+** http://9elements.com/io/index.php/an-ember-js-application-with-a-rails-api-backend/
+
+<ul>
+<li>Ember-CLI
+<ul>
+<li><a href="http://www.ember-cli.com/#getting-started">Getting Started</a></li>
+</ul></li>
+<li>Ember Addons
+<ul>
+<li><a href="http://www.emberaddons.com/">directory of addons</a></li>
+<li><a href="http://emberobserver.com/">curated/ranked list of addons</a></li>
+<li><a href="http://www.ember-cli.com/#developing-addons-and-blueprints">docs on developing an addon</a></li>
+</ul></li>
+<li>Ember-CLI w/ pods
+<ul>
+<li><a href="http://cball.me/organize-your-ember-app-with-pods/">Organize Your Ember App with Pods</a></li>
+<li><a href="http://www.ember-cli.com/#pods">ember-cli docs</a></li>
+</ul></li>
+<li>ES6 Modules
+<ul>
+<li><a href="http://www.ember-cli.com/#using-modules">in Ember-CLI</a></li>
+<li><a href="http://www.2ality.com/2014/09/es6-modules-final.html">detailed into to ES6 modules</a></li>
+</ul></li>
+<li>Ember-Data
+<ul>
+<li><a href="http://guides.emberjs.com/v1.11.0/models/">guide</a></li>
+<li><a href="https://github.com/genkgo/ember-localforage-adapter">ember-localforage-adapter</a></li>
+</ul></li>
+<li>Routing
+<ul>
+<li><a href="http://guides.emberjs.com/v1.10.0/routing/">guide</a></li>
+</ul></li>
+<li>link-to helper
+<ul>
+<li><a href="http://guides.emberjs.com/v1.11.0/templates/links/">guide</a></li>
+<li><a href="http://emberjs.com/api/classes/Ember.Handlebars.helpers.html#method_link-to">docs</a></li>
+</ul></li>
+<li>Ember Inspector
+<ul>
+<li><a href="https://github.com/emberjs/ember-inspector">source</a></li>
+<li><a href="https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi">Chrome extension</a></li>
+<li><a href="https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/">Firefox add-on</a></li>
+</ul></li>
+<li>Actions
+<ul>
+<li><a href="http://guides.emberjs.com/v1.11.0/templates/actions/">guide</a></li>
+<li><a href="http://emberjs.com/api/classes/Ember.Handlebars.helpers.html#method_action">docs</a></li>
+<li><a href="https://github.com/emberjs/rfcs/pull/50">RFC w/ recent improvements</a></li>
+</ul></li>
+<li>Components
+<ul>
+<li><a href="http://emberjs.com/api/classes/Ember.Component.html">docs</a></li>
+<li><a href="http://guides.emberjs.com/v1.11.0/components/">guide</a></li>
+</ul></li>
+<li>Input helper
+<ul>
+<li><a href="http://guides.emberjs.com/v1.10.0/templates/input-helpers/">guide</a></li>
+<li><a href="http://emberjs.com/api/classes/Ember.TextField.html">docs</a></li>
+</ul></li>
+<li>Async Test Helpers
+<ul>
+<li><a href="http://emberjs.com/api/classes/Ember.Test.html">docs</a></li>
+<li><a href="http://guides.emberjs.com/v1.11.0/testing/acceptance/">guide</a></li>
+<li><a href="http://coryforsyth.com/2014/07/10/demystifing-ember-async-testing/">Demystifying Ember Async Testing</a> blog post</li>
+</ul></li>
+</ul>

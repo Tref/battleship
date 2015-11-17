@@ -1,5 +1,5 @@
 class Player < ActiveRecord::Base
-  has_one :game
+  has_one :game, dependent: :destroy
   validates :name, presence: true
   # validates :game, presence: true
   before_create :build_default_game
