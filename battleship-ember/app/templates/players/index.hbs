@@ -1,0 +1,27 @@
+<h5>Top Players</h5>
+
+
+<table class="table table-condensed table-bordered">
+  <caption>Here is a list of the top players by win time.</caption>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Player</th>
+      <th>completed on</th>
+      <th>duration</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each sortedGames as |game|}}
+      <tr>
+        <td>{{game.id}}</td>
+        <td>{{game.player.name}}</td>
+        <td>{{game.completedOn}}</td>
+        <td>{{game.readableDuration}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+<hr>
+
+<div class="new-player-link">{{#link-to 'players.new' class='btn btn-default'}}Add a new player{{/link-to}}</div>

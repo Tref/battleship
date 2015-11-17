@@ -13,7 +13,7 @@ Router.map(function() {
     this.route('new');
     this.route('show', { path: '/:game_id' });
   });
-  this.route('players', function() {
+  this.route('players', {path: '/'}, function() {
     this.route('new');
     this.route('show', { path: '/:player_id' });
   });

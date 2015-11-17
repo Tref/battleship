@@ -57,9 +57,6 @@ class Api::PlayersController < ApplicationController
 
     def player_params
       params.require(:player).permit(:name)
-      # return params
-      # params.require(:data).require(:attributes).permit(:name, :duration, :game_id)
-      # params.require(:player).permit(:name, :duration, :game_id)
     end
 
     def log

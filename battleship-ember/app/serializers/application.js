@@ -1,6 +1,6 @@
 console.log("===============> ROOT/frontend/serializers/application.js");
+import Ember from 'ember';
 import DS from 'ember-data';
-// import { ActiveModelSerializer } from 'active-model-adapter';
 
 
 export default DS.JSONAPISerializer.extend({
@@ -26,6 +26,7 @@ export default DS.JSONAPISerializer.extend({
     }, attr);
  },
 
+  // keyForAttribute: function(attr, method) {
   keyForAttribute: function(attr, method) {
     // console.log("LOGGING ATTR ==============>>>>> ", attr);
     // console.log("LOGGING METHOD ==============>>>>> ", method);
