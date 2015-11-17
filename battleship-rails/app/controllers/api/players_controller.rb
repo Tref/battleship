@@ -1,0 +1,69 @@
+class Api::PlayersController < ApplicationController
+  before_action :log
+  before_action :set_player, only: [:show, :update, :destroy]
+
+  # GET /players
+  # GET /players.json
+  def index
+    @players = Player.all
+
+    render json: @players
+  end
+
+  # GET /players/1
+  # GET /players/1.json
+  def show
+    render json: @player, include: ['game']
+  end
+
+  # POST /players
+  # POST /players.json
+  def create
+   #  new_params = ActiveModel::Serializer::Adapter::JsonApi::Deserialization.parse(params.to_h) # or params.to_unsafe_h depending on your rails version
+    @player = Player.new(player_params)
+
+    if @player.save
+      render json: @player, status: :created, location: @api_player
+    else
+      render json: @player.errors, status: :unprocessable_entity
+    end
+  end
+
+  # PATCH/PUT /players/1
+  # PATCH/PUT /players/1.json
+  def update
+    @player = Player.find(params[:id])
+
+    if @player.update(player_params)
+      head :no_content
+    else
+      render json: @player.errors, status: :unprocessable_entity
+    end
+  end
+
+  # DELETE /players/1
+  # DELETE /players/1.json
+  def destroy
+    @player.destroy
+
+    head :no_content
+  end
+
+  private
+
+    def set_player
+      @player = Player.find(params[:id])
+    end
+
+    def player_params
+      params.require(:player).permit(:name)
+      # return params
+      # params.require(:data).require(:attributes).permit(:name, :duration, :game_id)
+      # params.require(:player).permit(:name, :duration, :game_id)
+    end
+
+    def log
+      # byebug
+      logger.debug params
+    end
+end

@@ -1,0 +1,26 @@
+{
+	"folders":
+	[
+		{
+			"path": "/",
+      "name": "Battleship",
+      "file_include_patterns": [".*", "Gemfile", "*.txt", "*.md"],
+      "folder_exclude_patterns": ["*"]
+		},
+		{
+			"path": "app",
+      "name": "Rails App"
+		},
+		{
+			"path": "config",
+      "name": "Rails Config",
+			"folder_exclude_patterns": ["locales"]
+		},
+		{
+			"path": "frontend",
+      "name": "Ember App",
+      "file_exclude_patterns": [".*"],
+      "folder_exclude_patterns": ["tmp", "dist", "tests", "public", "vendor"]
+		}
+	]
+}

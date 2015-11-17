@@ -1,0 +1,21 @@
+<h4>Listing all games</h4>
+
+<table class="table table-condensed table-bordered">
+  <caption>Here is a list of the most recent games</caption>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>created at</th>
+      <th>completed on</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |game|}}
+      <tr>
+        <td>{{game.id}}</td><td>{{game.createdAt}}</td><td>{{game.completedOn}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+<hr>
+<div class="new-game-link">{{#link-to 'games.new' class='btn btn-default'}}Start a new game!{{/link-to}}</div>
