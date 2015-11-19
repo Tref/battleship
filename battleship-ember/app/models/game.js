@@ -6,6 +6,7 @@ export default DS.Model.extend({
   createdAt: DS.attr('date'),
   duration: DS.attr('number'),
   readableDuration: DS.attr('string'),
+  positions: DS.attr('string'),
   player: DS.belongsTo('player', { async: true }),
 
   isCompleted: Ember.computed('completedOn', function() {

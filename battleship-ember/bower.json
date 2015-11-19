@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "battleship-ember",
   "dependencies": {
     "ember": "2.1.0",
     "ember-cli-shims": "ember-cli/ember-cli-shims#0.0.4",

@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "battleship-ember",
   "version": "0.0.0",
   "description": "Small description for frontend goes here",
   "private": true,
@@ -38,5 +38,8 @@
     "ember-data": "2.1.0",
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.3"
+  },
+  "dependencies": {
+    "ember-component-inbound-actions": "0.0.4"
   }
 }

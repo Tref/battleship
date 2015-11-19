@@ -14,15 +14,50 @@ body {
 }
 
 
+.boardContainer {
+  float: left;
+  width: 50%;
 
+}
 table.board-game {
   border-collapse: collapse;
 }
 
-table.board-game td {
-  border: 1px solid #ccc;
-  height: 100px;
-  width: 100px;
+table.board-game th,
+table.board-game td,
+table.board-game td div {
+  display: table-cell;
+  height: 80px;
+  width: 80px;
   text-align: center;
-  vertical-align: center;
+  vertical-align: middle;
 }
+
+table.board-game th,
+table.board-game td {
+    border: 1px solid #ccc;
+}
+
+table.board-game tr:hover {
+  background: #eee;
+}
+table.board-game td.gameCell:hover {
+  cursor: pointer;
+  background: yellow;
+}
+table.board-game td.gameCell.selectedCell {
+  background: lightgreen;
+}
+
+table.board-game td.gameCell.selectedCell .glyphicon-plus {
+  display: none;
+}
+table.board-game td.gameCell.unselectedCell .glyphicon-ok {
+  display: none;
+}
+#startGameModal {
+  display: block;
+}
+
+/*table.board-game colgroup:hover,
+table.board-game col:hover {background-color: #ffa; }*/

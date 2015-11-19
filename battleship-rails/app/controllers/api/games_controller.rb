@@ -56,8 +56,9 @@ class Api::GamesController < ApplicationController
     end
 
     def game_params
-      new_params = ActionController::Parameters.new(game: {completed_on: nil})
-      new_params.require(:game).permit(:completed_on)
+      # new_params = ActionController::Parameters.new(game: {completed_on: nil})
+      # new_params.require(:game).permit(:completed_on)
+      params.require(:game).permit(:completed_on, :positions)
     end
 
     def log_params

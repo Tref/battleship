@@ -133,3 +133,32 @@ http://jsfiddle.net/builtbymay/vUZ4R/
 <li><a href="http://coryforsyth.com/2014/07/10/demystifing-ember-async-testing/">Demystifying Ember Async Testing</a> blog post</li>
 </ul></li>
 </ul>
+
+
+
+
+  // actions: {
+
+  //   openStartGameModal: function(game) {
+  //     console.log("show open");
+  //     // debugger;
+  //     // $('#myModal').modal( {show: true })
+  //     // this.render('components/start-game-modal', {
+  //     //   outlet: 'modal',
+  //     //   into: 'games/show',
+  //     //   model: game,
+  //     //   controller: 'games'
+  //     // });
+  //     console.log("done?");
+  //     debugger;
+      
+  //   },
+
+  //   closeCheckoutModal: function() {
+  //     return this.disconnectOutlet({
+  //       outlet: 'modal',
+  //       parentView: 'games'
+  //     });
+  //   }
+
+  // }

@@ -8,6 +8,7 @@ export default Ember.Route.extend({
 
   actions: {
     createPlayer: function (model) {
+      console.log("create player");
       let player = this.store.createRecord('player', {
         name: model.name,
       });
