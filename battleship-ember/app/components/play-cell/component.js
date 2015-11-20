@@ -69,8 +69,9 @@ export default Ember.Component.extend({
 
   showLoading: function (argument) {
     var overlayDiv = $('<div class="loading-overlay"></div>');
+    var text = $('<div class="loading-text">Computers Turn..</div>');
     var spinner = $('<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>');
-    overlayDiv.append(spinner);
+    overlayDiv.append(spinner).append(text);
     $('.playBoard:first .playTableContainer').append(overlayDiv);
     return overlayDiv;
     
@@ -124,7 +125,8 @@ export default Ember.Component.extend({
       
       var self = this;
       self.loadingOverlay = this.showLoading();
-      setTimeout(() => {
+      window.setTimeout( () => {
+        debugger
         self.attack.call(randomShip);
         self.loadingOverlay.remove();
       }, 800);
