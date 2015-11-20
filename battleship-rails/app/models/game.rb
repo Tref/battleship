@@ -1,12 +1,18 @@
 class Game < ActiveRecord::Base
   belongs_to :player
+  before_validation :check_if_completed_on_changed
+
+  private
+  def check_if_completed_on_changed
+    if self.changes[:completed_on].present?
+      complete
+    end
+  end
 
   def complete
-    self.completed_on = Time.now
     elapsed = (self.completed_on - self.created_at)
     self.duration = elapsed
     self.readable_duration = humanize(elapsed)
-    save
   end
 
   def humanize secs

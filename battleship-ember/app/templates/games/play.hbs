@@ -2,4 +2,41 @@
 <p>Click on the board to select your positions</p>
 <hr>
 {{play-board board="human" coords=model.positions}}
-{{play-board board="computer" coords=computerCoords}} 
+{{play-board board="computer" coords=computerCoords}}
+
+<div class="modal fade" id="wonModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        {{!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> --}}
+        <h4 class="modal-title" id="myModalLabel">You Won!</h4>
+      </div>
+      <div class="modal-body">
+        <p>Congratulations, you won the game! Feel free to view the leaderboard or start a new game.</p>
+      </div>
+      <div class="modal-footer">
+
+        <a href="/" title="" class='btn btn-default' >View Leaderboard</a>
+        <a href="/new" title="" class='btn btn-primary'>Start a New Game!</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="lostModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">You Won!</h4>
+      </div>
+      <div class="modal-body">
+        <p>Sorry, you lost that game. Feel free to view the leaderboard or start a new game.</p>
+      </div>
+      <div class="modal-footer">
+        <a href="/" title="" class='btn btn-default' >View Leaderboard</a>
+        <a href="/new" title="" class='btn btn-primary'>Start a New Game!</a>
+      </div>
+    </div>
+  </div>
+</div>

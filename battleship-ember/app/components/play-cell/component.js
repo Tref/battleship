@@ -25,6 +25,11 @@ export default Ember.Component.extend({
     return _humanShips.filterBy('selected', false);
   }),
 
+  getModelID: function() {
+    let locArray = location.href.split("/");
+    return locArray[locArray.length - 1];
+  },
+
   // Get a random ship
   getRandomHumanShip: function () {
     var _humanShipsRemaining = this.get('humanShipsRemaining');
@@ -53,7 +58,7 @@ export default Ember.Component.extend({
     }
   },
 
-  // 'Ship' constructor
+  // 'Ship' component constructor
   init: function () {
     this._super(...arguments);
     this.isHumanBoard = this.board === "human";
@@ -73,7 +78,7 @@ export default Ember.Component.extend({
         this.set('hit', true);
         var _humanShipsHit = this.get('humanShipsHit');
         if (_humanShipsHit === 10) {
-          alert("Sorry, you lost!");
+          $('#lostModal').modal('show');
           return false;
         }
       } else {
@@ -89,8 +94,15 @@ export default Ember.Component.extend({
       if ( this.target ) {
         this.set('hit', true);
         var _computerShipsHit = this.get('computerShipsHit');
-        if (_computerShipsHit === 10) {
-          alert("Yay, you won!");
+        if (_computerShipsHit === 1) {
+
+          $('#wonModal').modal('show');
+
+          App.store.findRecord('game', this.getModelID() ).then(function(game) {
+            game.set('completedOn', new Date() );
+            game.save();
+          });
+
           return false;
         }
       } else {
@@ -109,6 +121,10 @@ export default Ember.Component.extend({
     select: function() {
       this.turn = "human";
       this.attack();
+    },
+
+    completeGame: function (argument) {
+      this.sendAction('completeGame');
     }
 
   } // actions

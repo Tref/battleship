@@ -27,6 +27,7 @@ export default Ember.Component.extend({
 
     App.store.findRecord('game', this.getModelID() ).then(function(game) {
       game.set('positions', JSON.stringify(selected) );
+      game.set('createdAt', new Date() );
       game.save();
     });
 

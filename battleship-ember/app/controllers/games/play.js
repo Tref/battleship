@@ -3,7 +3,6 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
-
   getRandomInt: function(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
   },
