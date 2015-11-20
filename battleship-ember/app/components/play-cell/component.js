@@ -94,7 +94,7 @@ export default Ember.Component.extend({
       if ( this.target ) {
         this.set('hit', true);
         var _computerShipsHit = this.get('computerShipsHit');
-        if (_computerShipsHit === 1) {
+        if (_computerShipsHit === 10) {
 
           $('#wonModal').modal('show');
 
