@@ -1,9 +1,10 @@
+console.log("FILE >> app/app.js");
 import Ember from 'ember';
 import Resolver from 'ember/resolver';
 import loadInitializers from 'ember/load-initializers';
 import config from './config/environment';
 
-console.log("===============> ROOT/frontend/app/app.js");
+
 
 var App;
 

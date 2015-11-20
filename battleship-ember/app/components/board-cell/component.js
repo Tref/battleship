@@ -1,5 +1,5 @@
+console.log("FILE >> components/board-cell/component.js");
 import Ember from 'ember';
-// import InboundActions from 'ember-component-inbound-actions/inbound-actions';
 
 export default Ember.Component.extend({
   tagName: 'td',
@@ -20,6 +20,7 @@ export default Ember.Component.extend({
   }),
 
   click(el) {
+    console.log("click");
     this.toggleProperty('selected');
     var _numSelected = this.get('numSelected');
     if (_numSelected === 2) {

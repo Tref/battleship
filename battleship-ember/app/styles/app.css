@@ -27,8 +27,9 @@ table.board-game th,
 table.board-game td,
 table.board-game td div {
   display: table-cell;
-  height: 80px;
-  width: 80px;
+  /*height: 30px;*/
+  /*width: 30px;*/
+  padding: 5px;
   text-align: center;
   vertical-align: middle;
 }
@@ -58,6 +59,16 @@ table.board-game td.gameCell.unselectedCell .glyphicon-ok {
 #startGameModal {
   display: block;
 }
+
+.playBoard {
+  float: left;
+  padding-right: 50px;
+}
+
+/*.main-container table.board-game .gameCell.playCell div {
+  height: 20px;
+  width: 20px;
+}*/
 
 /*table.board-game colgroup:hover,
 table.board-game col:hover {background-color: #ffa; }*/

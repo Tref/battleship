@@ -8,7 +8,7 @@ export default DS.JSONAPISerializer.extend({
   serialize() {
 
     console.log("serializing");
-    // debugger;
+    debugger;
     const result = this._super(...arguments),
       attr = result.data.attributes,
       rel = result.data.relationships;

@@ -1,0 +1,45 @@
+{{!-- 
+{{#if isShowingConfirmation}}
+  <button {{action "confirm"}}>Click again to confirm</button>
+{{else}}
+  <button {{action "showConfirmation"}}>{{title}}</button>
+{{/if}} --}}
+
+<div data-position-x={{positionX}} data-position-y={{positionY}}>
+  
+  {{#if isHumanBoard}}
+
+
+    {{#if hit}}
+      <div>
+        <span class="glyphicon glyphicon-fire"></span>
+      </div>
+    {{else if miss}}
+      <div>
+        <span class="glyphicon glyphicon-remove"></span>
+      </div>
+    {{else}}
+      <div>
+        <span class="glyphicon glyphicon-question-sign"></span>
+      </div>
+    {{/if}}
+
+
+  {{else}}
+
+    {{#if hit}}
+      <div>
+        <span class="glyphicon glyphicon-fire"></span>
+      </div>
+    {{else if miss}}
+      <div>
+        <span class="glyphicon glyphicon-remove"></span>
+      </div>
+    {{else}}
+      <div {{action "select"}}>
+        <span class="glyphicon glyphicon-question-sign"></span>
+      </div>
+    {{/if}}
+
+  {{/if}}
+</div>

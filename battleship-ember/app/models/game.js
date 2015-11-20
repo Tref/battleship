@@ -12,5 +12,5 @@ export default DS.Model.extend({
   isCompleted: Ember.computed('completedOn', function() {
     return  Ember.isPresent( this.get('completedOn') );
   })
-});
 
+});
