@@ -162,3 +162,5 @@ http://jsfiddle.net/builtbymay/vUZ4R/
   //   }
 
   // }
+
+  // import BoardCell from 'battleship-ember/components/board-cell/component';

@@ -1,7 +1,8 @@
+console.log("FILE >> router.js");
 import Ember from 'ember';
 import config from './config/environment';
 
-console.log("===============> ROOT/frontend/router.js");
+
 
 var Router = Ember.Router.extend({
   location: config.locationType

@@ -1,4 +1,4 @@
-console.log("===============> ROOT/frontend/controllers/players.js");
+console.log("FILE >> controllers/players/index.js");
 import Ember from 'ember';
 
 export default Ember.Controller.extend({

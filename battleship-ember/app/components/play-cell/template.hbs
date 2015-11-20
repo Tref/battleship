@@ -1,15 +1,7 @@
-{{!-- 
-{{#if isShowingConfirmation}}
-  <button {{action "confirm"}}>Click again to confirm</button>
-{{else}}
-  <button {{action "showConfirmation"}}>{{title}}</button>
-{{/if}} --}}
-
 <div data-position-x={{positionX}} data-position-y={{positionY}}>
   
   {{#if isHumanBoard}}
-
-
+    {{!-- If this is a cell on the human board --}}
     {{#if hit}}
       <div>
         <span class="glyphicon glyphicon-fire"></span>
@@ -23,10 +15,8 @@
         <span class="glyphicon glyphicon-question-sign"></span>
       </div>
     {{/if}}
-
-
   {{else}}
-
+    {{!-- if this is a cell on the computer board --}}
     {{#if hit}}
       <div>
         <span class="glyphicon glyphicon-fire"></span>
@@ -42,4 +32,5 @@
     {{/if}}
 
   {{/if}}
+
 </div>

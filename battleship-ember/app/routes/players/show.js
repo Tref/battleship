@@ -1,4 +1,4 @@
-console.log("===============> ROOT/frontend/routes/players/show.js");
+console.log("FILE >> routes/players/show.js");
 import Ember from 'ember';
 
 export default Ember.Route.extend({

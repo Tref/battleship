@@ -1,4 +1,4 @@
-console.log("===============> ROOT/frontend/routes/games/show.js");
+console.log("FILE >> routes/games/show.js");
 import Ember from 'ember';
 
 export default Ember.Route.extend({
@@ -9,7 +9,6 @@ export default Ember.Route.extend({
   actions: {
 
     playGame: function(modelID) {
-      console.log("playGame");
       this.transitionTo('games.play', modelID );
     }
 

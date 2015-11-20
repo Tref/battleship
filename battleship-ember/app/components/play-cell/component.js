@@ -5,8 +5,10 @@ export default Ember.Component.extend({
   tagName: 'td',
   classNames: ['gameCell', 'playCell'],
 
+  // Containers for human and computer ships
   humanShips: [],
   computerShips: [],
+
 
   humanShipsHit: Ember.computed('humanShips@each.hit', function() {
     var _humanShips = this.get('humanShips');
@@ -23,100 +25,83 @@ export default Ember.Component.extend({
     return _humanShips.filterBy('selected', false);
   }),
 
+  // Get a random ship
   getRandomHumanShip: function () {
     var _humanShipsRemaining = this.get('humanShipsRemaining');
     var _numHumanShipsRemaining = _humanShipsRemaining.length;
     var _randomShipIndex = Math.floor(Math.random() * ( (_numHumanShipsRemaining ) - 0)) + 0;
     return _humanShipsRemaining.objectAt(_randomShipIndex);
-    
   },
 
+  // Setup each ship instance
   setupShips: function (isHumanBoard, cell) {
-    console.log("_METHOD_ >> play-cell#setupShips");
-
     this.coords = [cell.get('positionX'), cell.get('positionY') ];
     this.hit = false;
     this.selected = false;
     if ( isHumanBoard ) {
-
       var selectedHumanPositions = this._controller.get('humanPositions');
       if (selectedHumanPositions.containsNested(this.coords) ) {
-        console.log("human target: ", this.coords);
         this.toggleProperty('target');
       }
       this.humanShips.pushObject(this);
-
     } else {
-
       var selectedComputerPositions = this._controller.get('computerPositions');
       if (selectedComputerPositions.containsNested(this.coords) ) {
-        console.log("computer target: ", this.coords);
         this.toggleProperty('target');
       }
       this.computerShips.pushObject(this);
-
     }
-
   },
 
+  // 'Ship' constructor
   init: function () {
-    console.log("_METHOD_ >> play-cell#init");
     this._super(...arguments);
     this.isHumanBoard = this.board === "human";
     this.setupShips(this.isHumanBoard, this );
     
   },
 
+  // Attack function
   attack: function () {
-    console.log("Attacking " + this.board + "'s Board at " + this.coords );
-    // debugger;
     this.set('selected', true);
 
-    if ( this.board === "human" ) {
+    
+    if ( this.board === "human" ) { // if attacking the humans board
 
-      // debugger;
-
+      // if this is a hit
       if ( this.target ) {
         this.set('hit', true);
         var _humanShipsHit = this.get('humanShipsHit');
-        console.log( _humanShipsHit + " human ships hit");
-        if (_humanShipsHit == 10) {
+        if (_humanShipsHit === 10) {
           alert("Sorry, you lost!");
           return false;
-        };
+        }
       } else {
         this.set('miss', true);
       }
-
+      // change turns
       this.turn = "human";
-      console.log(this.turn + "'s turn!"); 
-    
       return false;
 
-    } else {
+    } else { // if attacking computers board
 
+      // if this is a hit
       if ( this.target ) {
         this.set('hit', true);
         var _computerShipsHit = this.get('computerShipsHit');
-        console.log( _computerShipsHit + " human ships hit");
-        if (_computerShipsHit == 10) {
+        if (_computerShipsHit === 10) {
           alert("Yay, you won!");
           return false;
-        };
+        }
       } else {
         this.set('miss', true);
       }
-
+      // change turns
       this.turn = "computer";
-      console.log(this.turn + "'s turn!");
       var randomShip = this.getRandomHumanShip();
-
       this.attack.call(randomShip);
-
       return false;
-
     }
-
   },
 
   actions: {
@@ -126,7 +111,7 @@ export default Ember.Component.extend({
       this.attack();
     }
 
-  }
+  } // actions
 
 });
 

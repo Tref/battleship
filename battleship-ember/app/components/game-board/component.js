@@ -1,6 +1,4 @@
 import Ember from 'ember';
-import BoardCell from 'battleship-ember/components/board-cell/component';
-
 
 export default Ember.Component.extend({
   classNames: ['boardContainer'],

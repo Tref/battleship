@@ -1,4 +1,4 @@
-console.log("===============> ROOT/frontend/models/player.js");
+console.log("FILE >> models/player.js");
 import DS from 'ember-data';
 
 export default DS.Model.extend({

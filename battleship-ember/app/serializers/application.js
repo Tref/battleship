@@ -1,4 +1,4 @@
-console.log("===============> ROOT/frontend/serializers/application.js");
+console.log("FILE >> serializers/application.js");
 import Ember from 'ember';
 import DS from 'ember-data';
 
@@ -7,8 +7,6 @@ export default DS.JSONAPISerializer.extend({
 
   serialize() {
 
-    console.log("serializing");
-    debugger;
     const result = this._super(...arguments),
       attr = result.data.attributes,
       rel = result.data.relationships;
@@ -26,12 +24,7 @@ export default DS.JSONAPISerializer.extend({
     }, attr);
  },
 
-  // keyForAttribute: function(attr, method) {
-  keyForAttribute: function(attr, method) {
-    // console.log("LOGGING ATTR ==============>>>>> ", attr);
-    // console.log("LOGGING METHOD ==============>>>>> ", method);
-    // console.log("LOGGING CHANGE ==============>>>>>", Ember.String.dasherize(attr).toUpperCase() );
-    // console.log("--------------------\n");
+  keyForAttribute: function(attr) {
     return Ember.String.decamelize(attr);
   }
 });

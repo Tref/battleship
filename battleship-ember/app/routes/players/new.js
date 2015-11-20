@@ -1,4 +1,4 @@
-console.log("===============> ROOT/frontend/routes/players/new.js");
+console.log("FILE >> routes/players/new.js");
 import Ember from 'ember';
 
 export default Ember.Route.extend({
@@ -8,7 +8,6 @@ export default Ember.Route.extend({
 
   actions: {
     createPlayer: function (model) {
-      console.log("create player");
       let player = this.store.createRecord('player', {
         name: model.name,
       });
@@ -22,7 +21,6 @@ export default Ember.Route.extend({
       }
 
       function failure(reason) {
-        console.log("Failed: ", reason);
         // handle the error
       }
 
