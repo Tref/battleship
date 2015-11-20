@@ -41,8 +41,8 @@ table.board-game tr td:first-child {
 }
 
 table.board-game td div {
-  height:35px;
-  width:35px;
+  height:50px;
+  width:50px;
 }
 
 table.board-game tr:hover {
@@ -54,6 +54,20 @@ table.board-game td.gameCell:hover {
 }
 table.board-game td.gameCell.selectedCell {
   background: lightgreen;
+}
+
+table.board-game td.gameCell.selectedCell.missedCell {
+  background: lightblue;
+}
+table.board-game td.gameCell.selectedCell.missedCell .glyphicon {
+  color: white;
+}
+
+table.board-game td.gameCell.hitCell {
+  background: red;
+}
+table.board-game td.gameCell.hitCell .glyphicon {
+  color: white;
 }
 
 table.board-game td.gameCell.selectedCell .glyphicon-plus {
@@ -68,7 +82,28 @@ table.board-game td.gameCell.unselectedCell .glyphicon-ok {
 
 .playBoard {
   float: left;
-  padding-right: 50px;
+  margin-right: 50px;
+}
+
+.playBoard .playTableContainer {
+    position: relative;
+}
+
+.playBoard .playTableContainer .loading-overlay {
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.75);
+}
+
+.playBoard .playTableContainer .loading-overlay .glyphicon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -14px;
+  margin-top: -14px;
 }
 
 /*.main-container table.board-game .gameCell.playCell div {
@@ -78,3 +113,29 @@ table.board-game td.gameCell.unselectedCell .glyphicon-ok {
 
 /*table.board-game colgroup:hover,
 table.board-game col:hover {background-color: #ffa; }*/
+
+.glyphicon-refresh-animate {
+  color: white;
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+
+
+
+
+
+
+
+
+
+

@@ -4,6 +4,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   tagName: 'td',
   classNames: ['gameCell', 'playCell'],
+  classNameBindings: ['selected:selectedCell:unselectedCell', 'hit:hitCell:missedCell'],
 
   // Containers for human and computer ships
   humanShips: [],
@@ -66,6 +67,15 @@ export default Ember.Component.extend({
     
   },
 
+  showLoading: function (argument) {
+    var overlayDiv = $('<div class="loading-overlay"></div>');
+    var spinner = $('<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>');
+    overlayDiv.append(spinner);
+    $('.playBoard:first .playTableContainer').append(overlayDiv);
+    return overlayDiv;
+    
+  },
+
   // Attack function
   attack: function () {
     this.set('selected', true);
@@ -111,7 +121,15 @@ export default Ember.Component.extend({
       // change turns
       this.turn = "computer";
       var randomShip = this.getRandomHumanShip();
-      this.attack.call(randomShip);
+      
+      var self = this;
+      self.loadingOverlay = this.showLoading();
+      setTimeout(() => {
+        self.attack.call(randomShip);
+        self.loadingOverlay.remove();
+      }, 800);
+
+      
       return false;
     }
   },
