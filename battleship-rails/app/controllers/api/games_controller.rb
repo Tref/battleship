@@ -1,5 +1,4 @@
 class Api::GamesController < ApplicationController
-  before_action :log_params
   before_action :set_game, only: [:show, :update, :destroy]
   skip_before_action :verify_authenticity_token
 
@@ -7,7 +6,6 @@ class Api::GamesController < ApplicationController
   # GET /games.json
   def index
     @games = Game.all
-    # p @games.to_json
     render json: @games
   end
 
@@ -56,13 +54,7 @@ class Api::GamesController < ApplicationController
     end
 
     def game_params
-      # new_params = ActionController::Parameters.new(game: {completed_on: nil})
-      # new_params.require(:game).permit(:completed_on)
       params.require(:game).permit(:completed_on, :positions, :created_at)
     end
 
-    def log_params
-      puts "PARAMS"
-      p params
-    end
 end
