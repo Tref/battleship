@@ -7,7 +7,6 @@ export default Ember.Component.extend({
 
   humanShips: [],
   computerShips: [],
-  // turn: "human",
 
   humanShipsHit: Ember.computed('humanShips@each.hit', function() {
     var _humanShips = this.get('humanShips');
@@ -24,16 +23,10 @@ export default Ember.Component.extend({
     return _humanShips.filterBy('selected', false);
   }),
 
-
-  // getRandomInt: function (min, max) {
-  //   return Math.floor(Math.random() * (max - min)) + min;
-  // },
-
-  getRandomHumanShip: function (argument) {
+  getRandomHumanShip: function () {
     var _humanShipsRemaining = this.get('humanShipsRemaining');
     var _numHumanShipsRemaining = _humanShipsRemaining.length;
-    var _randomShipIndex = Math.floor(Math.random() * ( (_numHumanShipsRemaining + 1) - 0)) + 0;
-    // debugger;
+    var _randomShipIndex = Math.floor(Math.random() * ( (_numHumanShipsRemaining ) - 0)) + 0;
     return _humanShipsRemaining.objectAt(_randomShipIndex);
     
   },
@@ -41,7 +34,6 @@ export default Ember.Component.extend({
   setupShips: function (isHumanBoard, cell) {
     console.log("_METHOD_ >> play-cell#setupShips");
 
-    
     this.coords = [cell.get('positionX'), cell.get('positionY') ];
     this.hit = false;
     this.selected = false;
@@ -51,7 +43,7 @@ export default Ember.Component.extend({
       if (selectedHumanPositions.containsNested(this.coords) ) {
         console.log("human target: ", this.coords);
         this.toggleProperty('target');
-      };
+      }
       this.humanShips.pushObject(this);
 
     } else {
@@ -60,14 +52,14 @@ export default Ember.Component.extend({
       if (selectedComputerPositions.containsNested(this.coords) ) {
         console.log("computer target: ", this.coords);
         this.toggleProperty('target');
-      };
+      }
       this.computerShips.pushObject(this);
 
-    };
+    }
 
   },
 
-  init: function (argument) {
+  init: function () {
     console.log("_METHOD_ >> play-cell#init");
     this._super(...arguments);
     this.isHumanBoard = this.board === "human";
@@ -80,75 +72,58 @@ export default Ember.Component.extend({
     // debugger;
     this.set('selected', true);
 
-
-
-    if ( this.board == "human" ) {
+    if ( this.board === "human" ) {
 
       // debugger;
 
       if ( this.target ) {
         this.set('hit', true);
-        console.log(this.get('humanShipsHit') + " human ships hit");
+        var _humanShipsHit = this.get('humanShipsHit');
+        console.log( _humanShipsHit + " human ships hit");
+        if (_humanShipsHit == 10) {
+          alert("Sorry, you lost!");
+          return false;
+        };
       } else {
         this.set('miss', true);
-      };
+      }
 
       this.turn = "human";
       console.log(this.turn + "'s turn!"); 
     
+      return false;
+
     } else {
-    
-      // debugger;
 
       if ( this.target ) {
         this.set('hit', true);
-        console.log(this.get('humanShipsHit') + " human ships hit");
+        var _computerShipsHit = this.get('computerShipsHit');
+        console.log( _computerShipsHit + " human ships hit");
+        if (_computerShipsHit == 10) {
+          alert("Yay, you won!");
+          return false;
+        };
       } else {
         this.set('miss', true);
-      };
+      }
 
       this.turn = "computer";
       console.log(this.turn + "'s turn!");
-
-      
       var randomShip = this.getRandomHumanShip();
-      
-      // debugger;
 
       this.attack.call(randomShip);
 
-
       return false;
-      // this = this.getRandomHumanShip();
-      // this.attack();
 
-      
     }
 
   },
 
-  // didInsertElement: function (argument) {
-  //   // debugger;
-  // },
-
   actions: {
-    // showConfirmation: function() {
-    //   this.toggleProperty('isShowingConfirmation');
-    // },
-
-    // confirm: function() {
-    //   this.toggleProperty('isShowingConfirmation');
-    //   this.sendAction('action', this.get('param'));
-    // }
 
     select: function() {
-      // debugger;
-      // var x = this.get('positionX');
-      // var y = this.get('positionY');
-      // var selectedCell = [x, y];
       this.turn = "human";
       this.attack();
-
     }
 
   }
@@ -156,13 +131,16 @@ export default Ember.Component.extend({
 });
 
 // Warn if overriding existing method
-if(Array.prototype.equals)
-    console.warn("Overriding existing Array.prototype.equals. Possible causes: New API defines the method, there's a framework conflict or you've got double inclusions in your code.");
+if(Array.prototype.equals) {
+  console.warn("Overriding existing Array.prototype.equals. Possible causes: New API defines the method, there's a framework conflict or you've got double inclusions in your code.");
+}
+
 // attach the .equals method to Array's prototype to call it on any array
 Array.prototype.equals = function (array) {
     // if the other array is a falsy value, return
-    if (!array)
-        return false;
+    if (!array) {
+      return false;
+    }
 
     // compare lengths - can save a lot of time 
     if (this.length != array.length)

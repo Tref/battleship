@@ -23,7 +23,7 @@ export default Ember.Component.extend({
     console.log("click");
     this.toggleProperty('selected');
     var _numSelected = this.get('numSelected');
-    if (_numSelected === 2) {
+    if (_numSelected === 10) {
       $('#myModal').modal( {show: true })
     };
 

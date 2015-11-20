@@ -27,9 +27,6 @@ table.board-game th,
 table.board-game td,
 table.board-game td div {
   display: table-cell;
-  /*height: 30px;*/
-  /*width: 30px;*/
-  padding: 5px;
   text-align: center;
   vertical-align: middle;
 }
@@ -37,6 +34,15 @@ table.board-game td div {
 table.board-game th,
 table.board-game td {
     border: 1px solid #ccc;
+}
+table.board-game tr td:first-child {
+  font-weight: bold;
+  padding: 0 5px;
+}
+
+table.board-game td div {
+  height:35px;
+  width:35px;
 }
 
 table.board-game tr:hover {
