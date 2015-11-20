@@ -126,7 +126,6 @@ export default Ember.Component.extend({
       var self = this;
       self.loadingOverlay = this.showLoading();
       window.setTimeout( () => {
-        debugger
         self.attack.call(randomShip);
         self.loadingOverlay.remove();
       }, 800);

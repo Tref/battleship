@@ -114,13 +114,6 @@ table.board-game td.gameCell.unselectedCell .glyphicon-ok {
   margin-top: -14px;
 }
 
-/*.main-container table.board-game .gameCell.playCell div {
-  height: 20px;
-  width: 20px;
-}*/
-
-/*table.board-game colgroup:hover,
-table.board-game col:hover {background-color: #ffa; }*/
 
 .glyphicon-refresh-animate {
   color: white;
